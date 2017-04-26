@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import ImageWithOverlay from './components/ImageWithOverlay'
+import DiagonalImage from './components/DiagonalImage'
 
 export default class App extends Component {
   render() {
     return (
-      <ImageWithOverlay/>
+      <DiagonalImage/>
     );
   }
 }
