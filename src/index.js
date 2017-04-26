@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import SerieDetail from './components/SerieDetail'
+import SerieListView from './components/SerieListView'
 
 export default class App extends Component {
   render() {
     return (
-      <SerieDetail/>
+      <SerieListView/>
     );
   }
 }
