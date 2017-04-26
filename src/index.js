@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import IconInfos from './components/IconInfos'
+import SerieDetail from './components/SerieDetail'
 
 export default class App extends Component {
   render() {
     return (
-      <IconInfos/>
+      <SerieDetail/>
     );
   }
 }
