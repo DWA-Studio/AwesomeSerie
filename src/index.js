@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import DiagonalImage from './components/DiagonalImage'
+import IconInfos from './components/IconInfos'
 
 export default class App extends Component {
   render() {
     return (
-      <DiagonalImage/>
+      <IconInfos/>
     );
   }
 }
