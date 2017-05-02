@@ -1,36 +1,23 @@
+'use strict'
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import configureStore from './store/configureStore'
+const store = configureStore()
 
-import SerieListView from './components/SerieListView'
+import NavigationRootContainer from './containers/NavRootContainer'
+import { Provider } from 'react-redux'
 
-export default class App extends Component {
+
+export default class App extends Component{
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <SerieListView/>
+      <Provider store={store}>
+        <NavigationRootContainer />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
