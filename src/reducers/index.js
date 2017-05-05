@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import navReducer from './navReducer'
+import fecthReducer from './fetchReducer'
 
 const rootReducer = combineReducers({
-  navReducer
+  navReducer,
+  fetchReducer
 })
 
 export default rootReducer  
