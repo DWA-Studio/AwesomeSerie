@@ -31,8 +31,14 @@ class SerieListView extends Component{
 
   _onEndReached(){
     if(this.props.hasMoreResult){
-      //Fetch data
+      if(this.props.hasMoreResult){
+        this.props.actions.fetchData(this.props.nextPage);
+      }
     }
+  }
+
+  componentDidMount() {
+    this.props.actions.fetchData(this.props.nextPage);
   }
 
   render() {
@@ -45,8 +51,19 @@ class SerieListView extends Component{
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <ListViewItem onItemPress={()=>this.props.showDetail(rowData)} title={rowData.original_name} description={rowData.overview} image={'https://image.tmdb.org/t/p/w500/'+rowData.poster_path} height={this.state.height} width={this.state.width}/>}>
         </ListView>
+        {this.renderLoader()}
       </View>
     );
+  }
+
+  renderLoader(){
+    if(this.props.isFetching){
+      return(
+        <View style={{position:'absolute',bottom:0,left:0,right:0,justifyContent: 'center',alignItems: 'center'}}>
+          <ActivityIndicator animating={true} color='red' size='large' />
+        </View>
+      );
+    }
   }
 }
 SerieListView.propTypes = {
