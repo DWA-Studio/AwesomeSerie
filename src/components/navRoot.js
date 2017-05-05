@@ -3,9 +3,9 @@ import {
   View,
   StatusBar
 } from 'react-native';
-import SerieList from './SerieListView'
+import HomeContainer from '../containers/HomeContainer';
 import SerieDetail from './SerieDetail'
-import {detailRoute} from '../routes'
+import {detailRoute} from '../routes';
 
 import {
   BackAndroid,
@@ -32,7 +32,7 @@ class NavRoot extends Component {
     const { route } = props.scene
     switch (route.key) {
       case 'home':
-      return <SerieList showDetail={(serieItem) =>{this._handleNavigate(detailRoute(serieItem))} } />
+      return <HomeContainer showDetail={(serieItem) =>{this._handleNavigate(detailRoute(serieItem))} } />
       break;
       case 'detail':
       return <SerieDetail goBack={()=>this._handleBackAction()} serieItem={route.serieItem} />
