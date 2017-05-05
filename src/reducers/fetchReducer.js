@@ -9,7 +9,7 @@ const initialState = {
   errorMsg:'',
 }
 
-function navigationState (state = initialState, action) {
+function fetchState (state = initialState, action) {
   switch (action.type) {
 
     case FETCH_START:
@@ -17,10 +17,10 @@ function navigationState (state = initialState, action) {
 
 
     case FETCH_DONE:
-    return {...state,isFetching:false,hasMoreResult:action.data.hasMoreResult,nextPage:action.data.nextPage,series:[...state.series, ...action.data.series]}
+    return {...state,fetchSuccess:true,isFetching:false,hasMoreResult:action.data.hasMoreResult,nextPage:action.data.nextPage,series:[...state.series, ...action.data.series]}
 
     case FETCH_FAILED:
-    return {...state,isFetching:false,errorMsg:action.msg}
+    return {...state,fetchSuccess:false,isFetching:false,errorMsg:action.msg}
 
     default:
     return state
@@ -28,4 +28,4 @@ function navigationState (state = initialState, action) {
   }
 }
 
-export default navigationState 
+export default fetchState

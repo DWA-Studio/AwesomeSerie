@@ -20,3 +20,4 @@ export default connect(
   (dispatch) => ({
     actions: bindActionCreators(fetchActions, dispatch)
   })
+)(SerieListView);

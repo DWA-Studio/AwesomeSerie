@@ -5,7 +5,8 @@ import {
   Text,
   View,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native';
 import ListViewItem from './ListViewItem';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -39,6 +40,14 @@ class SerieListView extends Component{
 
   componentDidMount() {
     this.props.actions.fetchData(this.props.nextPage);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.fetchSuccess && !nextProps.isFetching){
+      this.setState({
+        dataSource: this.state.ds.cloneWithRows(nextProps.data)
+      });
+    }
   }
 
   render() {

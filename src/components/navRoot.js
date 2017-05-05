@@ -32,7 +32,7 @@ class NavRoot extends Component {
     const { route } = props.scene
     switch (route.key) {
       case 'home':
-      return <HomeContainer showDetail={(serieItem) =>{this._handleNavigate(detailRoute(serieItem))} } />
+      return <HomeContainer showDetail={(serieItem) =>{this._handleNavigate(detailRoute(serieItem))}} />
       break;
       case 'detail':
       return <SerieDetail goBack={()=>this._handleBackAction()} serieItem={route.serieItem} />
